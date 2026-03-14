@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | sake-wine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fafafa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .error-code {
+            font-size: 120px;
+            font-weight: 700;
+            color: #6366f1;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .error-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #6366f1;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #4f46e5;
+        }
+        .secondary-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .secondary-links a {
+            color: #6366f1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .secondary-links a:hover {
+            text-decoration: underline;
+        }
+        .lang-switch {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .lang-switch a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .lang-switch a:hover {
+            color: #6366f1;
+        }
+
+        /* English content hidden by default */
+        .en { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-icon">🍶</div>
+        <div class="error-code">404</div>
+
+        <!-- Japanese content -->
+        <div class="ja">
+            <h1>ページが見つかりません</h1>
+            <p>お探しのページは存在しないか、移動した可能性があります。</p>
+            <div class="links">
+                <a href="index.html" class="btn">プライバシーポリシーへ</a>
+                <div class="secondary-links">
+                    <a href="terms.html">利用規約</a>
+                    <a href="en/">English Version</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- English content -->
+        <div class="en">
+            <h1>Page Not Found</h1>
+            <p>The page you're looking for doesn't exist or has been moved.</p>
+            <div class="links">
+                <a href="en/index.html" class="btn">Go to Privacy Policy</a>
+                <div class="secondary-links">
+                    <a href="en/terms.html">Terms of Service</a>
+                    <a href="index.html">日本語版</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="lang-switch">
+            <a href="#" onclick="toggleLang(); return false;">
+                <span class="ja">Switch to English</span>
+                <span class="en">日本語に切り替え</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleLang() {
+            const jaElements = document.querySelectorAll('.ja');
+            const enElements = document.querySelectorAll('.en');
+
+            jaElements.forEach(el => {
+                el.style.display = el.style.display === 'none' ? 'block' : 'none';
+            });
+            enElements.forEach(el => {
+                el.style.display = el.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+
+        // Check browser language
+        if (navigator.language && !navigator.language.startsWith('ja')) {
+            toggleLang();
+        }
+    </script>
+</body>
+</html>
